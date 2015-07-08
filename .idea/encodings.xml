@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/ApplicationStarter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/ApiController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/ApiHeaders.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/AppExceptionHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/CategoryController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/CategoryResource.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/DefaultController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/ErrorResource.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/RecordResource.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/SubcategoryController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/api/SubcategoryResource.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/domain/Category.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/domain/Domain.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/domain/Record.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/domain/Subcategory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/repository/CategoryRepository.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/repository/ErrorInfoRepository.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/repository/SubcategoryRepository.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/CategoryService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/CategoryServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/ErrorInfoService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/ErrorInfoServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/SubcategoryService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/test/service/SubcategoryServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/data-hsqldb.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/data-mysql.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/messages.properties" charset="UTF-8" />
+  </component>
+</project>
