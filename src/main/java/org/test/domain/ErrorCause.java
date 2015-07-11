@@ -7,11 +7,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "code", "cause" }))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "error_info", "cause" }))
 @SuppressWarnings("unused")
-public class Cause extends Domain {
+public class ErrorCause extends Domain {
 
-    private static Log logger = LogFactory.getLog(Cause.class);
+    private static Log logger = LogFactory.getLog(ErrorCause.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Cause extends Domain {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "code")
+    @JoinColumn(name = "error_info")
     private ErrorInfo errorInfo;
     public ErrorInfo getErrorInfo() {
         return errorInfo;
@@ -43,10 +43,10 @@ public class Cause extends Domain {
         this.cause = cause;
     }
 
-    public Cause() {}
+    public ErrorCause() {}
 
-    public Cause(ErrorInfo errorInfo, String cause) {
-        logger.info("New object " + Cause.class);
+    public ErrorCause(ErrorInfo errorInfo, String cause) {
+        logger.info("New object " + ErrorCause.class);
         this.errorInfo = errorInfo;
         this.cause = cause;
     }
@@ -56,10 +56,10 @@ public class Cause extends Domain {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cause cause1 = (Cause) o;
+        ErrorCause errorCause1 = (ErrorCause) o;
 
-        if (!errorInfo.equals(cause1.errorInfo)) return false;
-        return cause.equals(cause1.cause);
+        if (!errorInfo.equals(errorCause1.errorInfo)) return false;
+        return cause.equals(errorCause1.cause);
 
     }
 
@@ -72,7 +72,7 @@ public class Cause extends Domain {
 
     @Override
     public String toString() {
-        return "Cause{" +
+        return "ErrorCause{" +
                 "id=" + id +
                 ", code=" + errorInfo.getCode() +
                 ", cause='" + cause + '\'' +

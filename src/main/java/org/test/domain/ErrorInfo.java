@@ -53,21 +53,21 @@ public class ErrorInfo extends Domain {
     }
 
     @OneToMany (mappedBy = "errorInfo", fetch = FetchType.EAGER)
-    private Set<Cause> causes = new HashSet<>();
-    public Set<Cause> getCauses() {
-        return causes;
+    private Set<ErrorCause> errorCauses = new HashSet<>();
+    public Set<ErrorCause> getErrorCauses() {
+        return errorCauses;
     }
-    public void setCauses(Set<Cause> causes) {
-        this.causes = causes;
+    public void setErrorCauses(Set<ErrorCause> errorCauses) {
+        this.errorCauses = errorCauses;
     }
 
     @OneToMany (mappedBy = "errorInfo", fetch = FetchType.EAGER)
-    private Set<Solution> solutions = new HashSet<>();
-    public Set<Solution> getSolutions() {
-        return solutions;
+    private Set<ErrorSolution> errorSolutions = new HashSet<>();
+    public Set<ErrorSolution> getErrorSolutions() {
+        return errorSolutions;
     }
-    public void setSolutions(Set<Solution> solutions) {
-        this.solutions = solutions;
+    public void setErrorSolutions(Set<ErrorSolution> errorSolutions) {
+        this.errorSolutions = errorSolutions;
     }
 
     public ErrorInfo() {}

@@ -16,6 +16,32 @@
       <exported-key name="FK_owyqf6cv2ssofp3kspnugdf4q" table="subcategory" schema="" catalog="demo" columns="category"/>
       <index name="UK_46ccwnsi9409t36lurvtyljak" unique="true" columns="name"/>
     </table>
+    <table name="error_cause" schema="" catalog="demo" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="cause" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="error_info" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_jtn1xauqgnjy478qq2pr41152" columns="error_info" ref-table="error_info" ref-schema="" ref-catalog="demo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UK_1cmgr8jf4e13e5mavdmo8ulno" unique="true" columns="error_info,cause"/>
+    </table>
+    <table name="error_info" schema="" catalog="demo" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_jtn1xauqgnjy478qq2pr41152" table="error_cause" schema="" catalog="demo" columns="error_info"/>
+      <exported-key name="FK_1laeh9cpnqj9dynw12nicd7r7" table="error_solution" schema="" catalog="demo" columns="error_info"/>
+      <index name="UK_kv6tcc776y4v9likk0480jayh" unique="true" columns="code"/>
+    </table>
+    <table name="error_solution" schema="" catalog="demo" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="solution" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="error_info" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_1laeh9cpnqj9dynw12nicd7r7" columns="error_info" ref-table="error_info" ref-schema="" ref-catalog="demo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UK_63lv08p4n8s14lqendwptqrxt" unique="true" columns="error_info,solution"/>
+    </table>
     <table name="subcategory" schema="" catalog="demo" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>

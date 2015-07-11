@@ -2,9 +2,9 @@ package org.test.api;
 
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
-import org.test.domain.Cause;
+import org.test.domain.ErrorCause;
 import org.test.domain.ErrorInfo;
-import org.test.domain.Solution;
+import org.test.domain.ErrorSolution;
 
 import java.util.stream.Collectors;
 
@@ -28,8 +28,8 @@ public class ErrorInfoResourceAssembler extends ResourceAssemblerSupport<ErrorIn
         errorInfoResource.code = errorInfo.getCode();
         errorInfoResource.title = errorInfo.getTitle();
         errorInfoResource.description = errorInfo.getDescription();
-        errorInfoResource.causes = errorInfo.getCauses().stream().map(Cause::getCause).collect(Collectors.toList());
-        errorInfoResource.solutions = errorInfo.getSolutions().stream().map(Solution::getSolution).collect(Collectors.toList());
+        errorInfoResource.causes = errorInfo.getErrorCauses().stream().map(ErrorCause::getCause).collect(Collectors.toList());
+        errorInfoResource.solutions = errorInfo.getErrorSolutions().stream().map(ErrorSolution::getSolution).collect(Collectors.toList());
         return errorInfoResource;
     }
 }

@@ -7,11 +7,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "code", "solution" }))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "error_info", "solution" }))
 @SuppressWarnings("unused")
-public class Solution extends Domain {
+public class ErrorSolution extends Domain {
 
-    private static Log logger = LogFactory.getLog(Solution.class);
+    private static Log logger = LogFactory.getLog(ErrorSolution.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Solution extends Domain {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "code")
+    @JoinColumn(name = "error_info")
     private ErrorInfo errorInfo;
     public ErrorInfo getErrorInfo() {
         return errorInfo;
@@ -43,10 +43,10 @@ public class Solution extends Domain {
         this.solution = solution;
     }
 
-    public Solution() {}
+    public ErrorSolution() {}
 
-    public Solution(ErrorInfo errorInfo, String solution) {
-        logger.info("New object " + Solution.class);
+    public ErrorSolution(ErrorInfo errorInfo, String solution) {
+        logger.info("New object " + ErrorSolution.class);
         this.errorInfo = errorInfo;
         this.solution = solution;
     }
@@ -56,10 +56,10 @@ public class Solution extends Domain {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Solution solution1 = (Solution) o;
+        ErrorSolution errorSolution1 = (ErrorSolution) o;
 
-        if (!errorInfo.equals(solution1.errorInfo)) return false;
-        return solution.equals(solution1.solution);
+        if (!errorInfo.equals(errorSolution1.errorInfo)) return false;
+        return solution.equals(errorSolution1.solution);
 
     }
 
@@ -72,7 +72,7 @@ public class Solution extends Domain {
 
     @Override
     public String toString() {
-        return "Solution{" +
+        return "ErrorSolution{" +
                 "id=" + id +
                 ", code=" + errorInfo.getCode() +
                 ", solution='" + solution + '\'' +

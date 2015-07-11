@@ -1,3 +1,35 @@
+INSERT INTO ERROR_INFO (ID, CODE, TITLE, DESCRIPTION) VALUES
+(1, '10000', 'Error Interno del Servidor', 'Algo inesperado ha fallado.'),
+(2, '10001', 'Formato JSON no Parseable', 'El contenido de la solicitud está mal formado.'),
+(3, '10002', 'Recurso no Encontrado', 'El recurso al que está intentando acceder no existe.'),
+(4, '10003', 'Clave Duplicada', 'El valor de la clave está siendo usada por otro recurso.'),
+(5, '10004', 'Error de Validación', 'Algún dato no cumple con las restricciones de validación.'),
+(6, '10005', 'Argumento Ilegal', 'Se ha informado de algún elemento no válido para realizar la operación.'),
+(7, '10006', 'Error de Integridad Referencial', 'El recurso es referenciado por otros recursos.'),
+(8, '10007', 'Método no Soportado', 'La operación no es soportada por la aplicación.');
+
+INSERT INTO ERROR_CAUSE (ID, CAUSE, ERROR_INFO) VALUES
+(1, 'Circunstancia no contemplada.', 1),
+(2, 'JSON mal formado.', 2),
+(3, 'El identificador del recurso es erróneo.', 3),
+(4, 'El recurso pudo existir pero se eliminó.', 3),
+(5, 'Ya existe otro recurso usando la clave única.', 4),
+(6, 'Una o más restricciones de validación ha sido violada.', 5),
+(7, 'Uno o más de los argumentos usados para realizar la operación no está permitido.', 6),
+(8, 'Está intentando eliminar un registro que es referenciado por otros recursos.', 7),
+(9, 'La operación que intenta realizar no está implementada.', 8);
+
+INSERT INTO ERROR_SOLUTION (ID, SOLUTION, ERROR_INFO) VALUES
+(1, 'Contacte con el administrador.', 1),
+(2, 'Revise la sintaxsis. En el error específico debe aparecer indicaciones de cómo corregirlo.', 2),
+(3, 'Compruebe el identificador del recurso.', 3),
+(4, 'Revise el histórico de eliminaciones.', 3),
+(5, 'Compruebe que la clave no esta siendo usada por otro recurso.', 4),
+(6, 'Revise las restricciones para cada tipo de recurso.', 5),
+(7, 'Compruebe los argumentos necesarios. En determinadas operaciones se requiere un identificador.', 6),
+(8, 'Debe eliminar antes los registros que referencian al recurso.', 7),
+(9, 'Revise la documentación del api para comprobar si la operación está soportada.', 8);
+
 INSERT INTO CATEGORY (ID, NAME, CREATED, LAST_UPDATE) VALUES
 (1, 'BIOQUÍMICA', NOW(), NOW()),
 (2, 'HEMATOLOGÍA', NOW(), NOW()),

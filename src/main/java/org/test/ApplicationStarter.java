@@ -15,7 +15,7 @@ public class ApplicationStarter {
     @Bean
     public ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasenames("classpath:messages");
+        messageSource.setBasenames("classpath:messages/messages");
         messageSource.setCacheSeconds(-1);
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;

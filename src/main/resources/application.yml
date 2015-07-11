@@ -4,7 +4,7 @@ spring:
    jackson:
     date-format: dd-MM-yyyy HH:mm:ss.SSS
    profiles:
-    active: development
+    active: test
 
 ---
 
@@ -13,7 +13,7 @@ server:
   ssl:
     enabled: true
     key-alias: jetty
-    key-store: classpath:jetty-keystore.p12
+    key-store: classpath:private/jetty-keystore.p12
     key-store-password: password
     key-store-type: PKCS12
 
@@ -33,6 +33,7 @@ spring:
     username: root
     password: pablo-1
     platform: mysql
+    data: classpath:database/data-mysql.sql
     initialize: true
     sql-script-encoding: UTF-8
   jpa:
@@ -53,6 +54,7 @@ spring:
     username: sa
     password:
     platform: hsqldb
+    data: classpath:database/data-hsqldb.sql
     initialize: true
     sql-script-encoding: UTF-8
   jpa:
