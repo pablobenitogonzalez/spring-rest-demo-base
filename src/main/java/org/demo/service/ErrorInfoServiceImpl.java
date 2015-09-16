@@ -20,11 +20,11 @@ public class ErrorInfoServiceImpl implements ErrorInfoService {
 
     public ErrorInfo getErrorInfo(String code) {
         if(code == null) {
-            throw new IllegalArgumentException(messageService.getMessage("org.test.demo.message.errorInfo.code.null"));
+            throw new IllegalArgumentException(messageService.getMessage("message.errorInfo.code.null"));
         }
         ErrorInfo errorInfo = errorInfoRepository.findByCode(code);
         if(errorInfo == null) {
-            throw new ResourceNotFoundException(messageService.getMessage("org.test.demo.message.errorInfo.not.found", new Object[]{code}));
+            throw new ResourceNotFoundException(messageService.getMessage("message.errorInfo.not.found", new Object[]{code}));
         }
         return errorInfo;
     }

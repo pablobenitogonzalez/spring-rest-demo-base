@@ -29,7 +29,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource generalExceptionHandler(HttpServletRequest req, Exception e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10000", e,
-                messageService.getMessage("org.test.demo.type.internal.error.server"));
+                messageService.getMessage("type.internal.error.server"));
     }
 
     @ExceptionHandler (HttpMessageNotReadableException.class)
@@ -37,7 +37,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleHttpMessageNotReadableException(HttpServletRequest req, HttpMessageNotReadableException e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10001", e,
-                messageService.getMessage("org.test.demo.type.parse.json"));
+                messageService.getMessage("type.parse.json"));
     }
 
     @ExceptionHandler (ResourceNotFoundException.class)
@@ -45,7 +45,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleResourceNotFoundException(HttpServletRequest req, ResourceNotFoundException e) {
         return new ErrorResource(HttpStatus.NOT_FOUND, req, "10002", e,
-                messageService.getMessage("org.test.demo.type.resource.not.found"));
+                messageService.getMessage("type.resource.not.found"));
     }
 
     @ExceptionHandler (DuplicateKeyException.class)
@@ -53,7 +53,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleDuplicateKeyException(HttpServletRequest req, DuplicateKeyException e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10003", e,
-                messageService.getMessage("org.test.demo.type.resource.duplicate.key"));
+                messageService.getMessage("type.resource.duplicate.key"));
     }
 
     @ExceptionHandler (ConstraintViolationException.class)
@@ -61,8 +61,8 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleConstraintViolationException(HttpServletRequest req, ConstraintViolationException e) {
         ErrorResource errorResource = new ErrorResource(HttpStatus.NOT_ACCEPTABLE, req, "10004", e,
-                messageService.getMessage("org.test.demo.type.resource.constraint.violation"),
-                messageService.getMessage("org.test.demo.message.resource.constraint.violation",
+                messageService.getMessage("type.resource.constraint.violation"),
+                messageService.getMessage("message.resource.constraint.violation",
                                                      new Object[]{e.getConstraintViolations().size()}));
         for(ConstraintViolation<?> constraint : e.getConstraintViolations()) {
             errorResource.addError(constraint.getPropertyPath().toString(),
@@ -77,7 +77,7 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleIllegalArgumentException(HttpServletRequest req, IllegalArgumentException e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10005", e,
-                messageService.getMessage("org.test.demo.type.illegal.argument"));
+                messageService.getMessage("type.illegal.argument"));
     }
 
     @ExceptionHandler (DataIntegrityViolationException.class)
@@ -85,7 +85,7 @@ public class AppExceptionHandler {
      @ResponseBody
      public ErrorResource handleDataIntegrityViolationException(HttpServletRequest req, DataIntegrityViolationException e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10006", e,
-                messageService.getMessage("org.test.demo.type.resource.data.integrity.violation"));
+                messageService.getMessage("type.resource.data.integrity.violation"));
     }
 
     @ExceptionHandler (HttpRequestMethodNotSupportedException.class)
@@ -93,6 +93,6 @@ public class AppExceptionHandler {
     @ResponseBody
     public ErrorResource handleHttpRequestMethodNotSupportedException(HttpServletRequest req, HttpRequestMethodNotSupportedException e) {
         return new ErrorResource(HttpStatus.BAD_REQUEST, req, "10007", e,
-                messageService.getMessage("org.test.demo.type.method.not.supported"));
+                messageService.getMessage("type.method.not.supported"));
     }
 }

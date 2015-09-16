@@ -25,11 +25,11 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     public Subcategory getSubcategory(Long id) {
         if(id == null) {
-            throw new IllegalArgumentException(messageService.getMessage("org.test.demo.message.subcategory.id.null"));
+            throw new IllegalArgumentException(messageService.getMessage("message.subcategory.id.null"));
         }
         Subcategory subcategory = subcategoryRepository.findOne(id);
         if(subcategory == null) {
-            throw new ResourceNotFoundException(messageService.getMessage("org.test.demo.message.subcategory.not.found", new Object[]{id}));
+            throw new ResourceNotFoundException(messageService.getMessage("message.subcategory.not.found", new Object[]{id}));
         }
         return subcategory;
     }
@@ -42,7 +42,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
                                          @Valid
                                          Subcategory subcategory) {
         if(subcategoryRepository.findByNameAndCategory_Id(subcategory.getName(), subcategory.getCategory().getId()) != null)
-            throw new DuplicateKeyException(messageService.getMessage("org.test.demo.message.subcategory.duplicate.key",
+            throw new DuplicateKeyException(messageService.getMessage("message.subcategory.duplicate.key",
                     new Object[]{subcategory.getName(), subcategory.getCategory().getId()}));
         return subcategoryRepository.save(subcategory);
     }
@@ -56,7 +56,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
         }
         if(!(oldSubcategory.getName().equals(subcategory.getName()) && oldSubcategory.getId().equals(subcategory.getId()))
                 && subcategoryRepository.findByNameAndCategory_Id(subcategory.getName(), subcategory.getCategory().getId()) != null)
-            throw new DuplicateKeyException(messageService.getMessage("org.test.demo.message.subcategory.duplicate.key",
+            throw new DuplicateKeyException(messageService.getMessage("message.subcategory.duplicate.key",
                     new Object[]{subcategory.getName(), subcategory.getCategory().getId()}));
         subcategoryRepository.save(subcategory);
     }

@@ -18,6 +18,6 @@ public class DefaultController {
 	@RequestMapping ("/**")
 	public void unmappedRequest(HttpServletRequest request) {
 		String uri = request.getRequestURI();
-		throw new ResourceNotFoundException(messageService.getMessage("org.test.demo.message.no.resource.for.path", new Object[]{uri}));
+		throw new ResourceNotFoundException(messageService.getMessage("message.no.resource.for.path", new Object[]{uri}));
 	}
 }

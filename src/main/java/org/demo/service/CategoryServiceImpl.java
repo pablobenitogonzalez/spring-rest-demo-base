@@ -26,11 +26,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     public Category getCategory(Long id) {
         if(id == null) {
-            throw new IllegalArgumentException(messageService.getMessage("org.test.demo.message.category.id.null"));
+            throw new IllegalArgumentException(messageService.getMessage("message.category.id.null"));
         }
         Category category = categoryRepository.findOne(id);
         if(category == null) {
-            throw new ResourceNotFoundException(messageService.getMessage("org.test.demo.message.category.not.found", new Object[]{id}));
+            throw new ResourceNotFoundException(messageService.getMessage("message.category.not.found", new Object[]{id}));
         }
         return category;
     }
@@ -43,7 +43,7 @@ public class CategoryServiceImpl implements CategoryService {
                                    @Valid
                                    Category category) {
         if(categoryRepository.findByName(category.getName()) != null) {
-            throw new DuplicateKeyException(messageService.getMessage("org.test.demo.message.category.duplicate.key", new Object[]{category.getName()}));
+            throw new DuplicateKeyException(messageService.getMessage("message.category.duplicate.key", new Object[]{category.getName()}));
         }
         return categoryRepository.save(category);
     }
@@ -53,7 +53,7 @@ public class CategoryServiceImpl implements CategoryService {
                                Category category) {
         Category oldCategory = this.getCategory(category.getId());
         if(!oldCategory.getName().equals(category.getName()) && categoryRepository.findByName(category.getName()) != null) {
-            throw new DuplicateKeyException(messageService.getMessage("org.test.demo.message.category.duplicate.key", new Object[]{category.getName()}));
+            throw new DuplicateKeyException(messageService.getMessage("message.category.duplicate.key", new Object[]{category.getName()}));
         }
         categoryRepository.save(category);
     }
@@ -61,7 +61,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void deleteCategory(Long id) {
         Category category = this.getCategory(id);
         if(category.getSubcategories().size() > 0) {
-            throw new DataIntegrityViolationException(messageService.getMessage("org.test.demo.message.category.data.integrity", new Object[]{id}));
+            throw new DataIntegrityViolationException(messageService.getMessage("message.category.data.integrity", new Object[]{id}));
         }
         categoryRepository.delete(category);
     }
